@@ -1,0 +1,2 @@
+"NSLocationAlwaysUsageDescription" = "Мы хотим получить данные о местоположении для точных данных о погоде";
+"NSLocationWhenInUseUsageDescription" = "Мы хотим получить данные о местоположении для точных данных о погоде";

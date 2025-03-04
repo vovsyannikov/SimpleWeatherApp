@@ -1,0 +1,2 @@
+"NSLocationAlwaysUsageDescription" = "We need to access your current location for accurate weather info";
+"NSLocationWhenInUseUsageDescription" = "We need to access your current location for accurate weather info";
