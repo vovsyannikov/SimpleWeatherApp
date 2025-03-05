@@ -9,10 +9,13 @@ import CoreLocation
 import SwiftUI
 
 struct ContentView: View {
-	@Bindable var viewModel: ViewModel
-	@State private var isLaunching = true
+	@ObservedObject var viewModel: ViewModel
+	@State private var isLaunching = false
 
 	var weatherState: WeatherState { viewModel.weatherState }
+
+	private let errorIcon = "exclamationmark.circle.fill"
+	private let errorTitle: LocalizedStringResource = "Произошла ошибка"
 
 	init(viewModel: ViewModel) {
 		self.viewModel = viewModel
@@ -54,10 +57,36 @@ struct ContentView: View {
 		}
 	}
 
+	@ViewBuilder
 	private var errorView: some View {
+		if #available(iOS 17, *) {
+			newErrorView
+		} else {
+			VStack {
+				Image(systemName: errorIcon)
+					.resizable()
+					.scaledToFit()
+					.foregroundStyle(.red)
+					.frame(height: 50)
+					.padding(.bottom, 10)
+
+				Text(errorTitle)
+					.font(.title2)
+					.bold()
+
+				Text(weatherState.errorText ?? "")
+					.font(.subheadline)
+			}
+			.frame(maxWidth: .infinity, maxHeight: .infinity)
+			.foregroundStyle(.white)
+		}
+	}
+
+	@available(iOS 17, *)
+	private var newErrorView: some View {
 		ContentUnavailableView(
-			"Произошла ошибка",
-			systemImage: "exclamationmark.circle.fill",
+			String(localized: errorTitle),
+			systemImage: errorIcon,
 			description: Text(weatherState.errorText ?? "")
 		)
 		.foregroundStyle(.white, .red)
@@ -85,5 +114,5 @@ struct ContentView: View {
 }
 
 #Preview {
-	ContentView(viewModel: .example)
+	ContentView(viewModel: .errorExample)
 }

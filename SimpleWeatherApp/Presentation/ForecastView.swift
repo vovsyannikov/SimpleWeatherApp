@@ -28,8 +28,8 @@ struct ForecastView: View {
 						dayView(for: dayInfo)
 					}
 				}
+				.padding(.horizontal, spacing)
 			}
-			.contentMargins(.horizontal, spacing)
 			.fixedSize(horizontal: false, vertical: true)
 		}
     }

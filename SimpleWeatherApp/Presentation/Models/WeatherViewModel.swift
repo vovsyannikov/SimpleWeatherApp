@@ -11,18 +11,18 @@ import OSLog
 import SwiftUI
 
 extension ContentView {
+
 	@MainActor
-	@Observable
-	class ViewModel {
+	class ViewModel: ObservableObject {
 		static let logger = Logger(subsystem: "com.t3rr4.SimpleWeatherApp", category: "ContentView-ViewModel")
 
-		var showError: Bool = false
+		@Published var showError: Bool = false
 		var isLoading: Bool {
 			get { weatherState.isLoading }
 			set { weatherState.isLoading = newValue }
 		}
 		private let noLocationString = String(localized: LocalizedStringResource("Обновляем…"))
-		var currentLocation: String
+		@Published var currentLocation: String
 
 		private let repository: WeatherRepository
 		private let locationTracker: LocationTracker

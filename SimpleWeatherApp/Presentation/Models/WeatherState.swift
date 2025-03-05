@@ -8,12 +8,11 @@
 import CoreLocation
 import Foundation
 
-@Observable
-class WeatherState {
-	var currentLocation: CLLocation?
-	var weatherInfo: WeatherInfo?
-	var isLoading: Bool
-	var errorText: String?
+class WeatherState: ObservableObject {
+	@Published var currentLocation: CLLocation?
+	@Published var weatherInfo: WeatherInfo?
+	@Published var isLoading: Bool
+	@Published var errorText: String?
 
 	private var currentDayData: DayInfo? { weatherInfo?.currentWeatherData }
 
