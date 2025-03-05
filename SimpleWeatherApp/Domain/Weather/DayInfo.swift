@@ -25,6 +25,6 @@ struct DayInfo: Codable, Identifiable {
 	var windSpeedDescription: String { "\(rounded(windSpeed))" + String(localized: LocalizedStringResource("км/ч")) }
 
 	private func rounded(_ value: Double) -> Int {
-		Int(windSpeed.rounded())
+		Int(value.rounded())
 	}
 }
