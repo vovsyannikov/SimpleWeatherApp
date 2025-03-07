@@ -1,6 +1,29 @@
 {
   "sourceLanguage" : "ru",
   "strings" : {
+    "%lld %%" : {
+      "shouldTranslate" : false
+    },
+    "%lld гПа" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld hPa"
+          }
+        }
+      }
+    },
+    "%lld км/ч" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld km/h"
+          }
+        }
+      }
+    },
     "Clear sky" : {
       "localizations" : {
         "en" : {
@@ -445,26 +468,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сильный ливень"
-          }
-        }
-      }
-    },
-    "гПа" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "hPa"
-          }
-        }
-      }
-    },
-    "км/ч" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "km/h"
           }
         }
       }

@@ -49,7 +49,7 @@ struct WeatherCard: View {
 		.padding()
     }
 
-	private func subtitleView(image: String, title: String) -> some View {
+	private func subtitleView(image: String, title: LocalizedStringResource) -> some View {
 		HStack(spacing: 5) {
 			Image(systemName: image)
 			Text(title)

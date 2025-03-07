@@ -44,16 +44,16 @@ class WeatherState: ObservableObject {
 	var icon: String { currentDayData?.weatherType.iconName ?? "cloud.fill" }
 	var temperature: String { currentDayData?.temperatureString ?? "" }
 	var weatherType: LocalizedStringResource { (currentDayData?.weatherType ?? .overcast).title }
-	var pressure: String { currentDayData?.pressureDescription ?? "" }
-	var humidity: String { currentDayData?.humidityDescription ?? "" }
-	var windSpeed: String { currentDayData?.windSpeedDescription ?? "" }
+	var pressure: LocalizedStringResource { currentDayData?.pressureDescription ?? "\(0) гПа" }
+	var humidity: LocalizedStringResource { currentDayData?.humidityDescription ?? "\(0) %" }
+	var windSpeed: LocalizedStringResource { currentDayData?.windSpeedDescription ?? "\(0) км/ч" }
 
 	var forecastByDay: [[DayInfo]] {
 		weatherInfo?.weatherDataPerDay.map { $0.value } ?? []
 	}
 
-
 	// MARK: - Examples
+	@MainActor
 	static let example = {
 		let date = Date.now
 		let today = DayInfo(
